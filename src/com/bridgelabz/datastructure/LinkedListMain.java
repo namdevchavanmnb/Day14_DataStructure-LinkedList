@@ -22,6 +22,9 @@ public class LinkedListMain {
         list2.searchAndInsert(56,30);
         list2.show();
         list2.pop();
+        list2.popFirst();
+        list2.show();
+        list2.popLast();
         list2.show();
     }
 }
