@@ -25,7 +25,28 @@ public class LinkedList<T> {
             tail = newnode;
         }
     }
+    public Node<T> search(T searchData) {
+        Node<T> temp = head;
+        while (temp != null) {
+            if (temp.getData().equals(searchData))
+                return temp;
+            temp = (Node<T>) temp.getNext();
+        }
+        return null;
+    }
 
+    public boolean searchAndInsert(T searchData, T insertData) {
+        Node<T> newNode = new Node(insertData);
+        Node<T> searchedNode = search(searchData);
+        if (searchedNode == null)
+            return false;
+        else {
+            newNode.setNext(searchedNode.getNext());
+            searchedNode.setNext(newNode);
+            return true;
+        }
+
+    }
     public void show() {
         if (head == null) {
             System.out.println("List is Empty");
