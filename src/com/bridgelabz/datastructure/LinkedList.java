@@ -56,6 +56,30 @@ public class LinkedList<T> {
             return data;
         }
     }
+    public void popFirst() {
+        if (head == null) {
+            System.out.println("Linked List is Empty");
+        } else {
+            T data = head.getData();
+            head = (Node<T>) head.getNext();
+            System.out.println(data);
+        }
+    }
+    public void popLast() {
+        if (head == null) {
+            System.out.println("Linked List is Empty");
+        } else {
+            Node<T> temp = head;
+            while (temp.getNext() != tail) {
+                temp = (Node<T>) temp.getNext();
+            }
+            T data = tail.getData();
+            temp.setNext(null);
+            tail = temp;
+            System.out.println(data);
+        }
+    }
+
     public void show() {
         if (head == null) {
             System.out.println("List is Empty");
