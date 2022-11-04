@@ -15,13 +15,24 @@ public class LinkedList<T> {
         }
     }
 
+    public void add(T data) {
+        Node<T> newnode = new Node<>(data);
+        if (head == null) {
+            head = newnode;
+            tail = newnode;
+        } else {
+            tail.setNext(newnode);
+            tail = newnode;
+        }
+    }
+
     public void show() {
         if (head == null) {
-            System.out.println("list is empty");
+            System.out.println("List is Empty");
         } else {
             Node<T> temp = head;
             while (temp != null) {
-                System.out.println(temp.getData() + " ");
+                System.out.print(temp.getData() + " ");
                 temp = (Node<T>) temp.getNext();
             }
             System.out.println();
